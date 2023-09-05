@@ -27,5 +27,6 @@ func (s *Server) Start() error {
 func(s *Server) InitializeRoutes() {
 	s.App.Get("/", IndexHandler)
 	s.App.Get("/nfs/", NfHandler)
+	s.App.Get("/nfs/:operation", ModalHandler)
 }
 

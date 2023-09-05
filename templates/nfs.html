@@ -1,6 +1,35 @@
-<h3>Notas Fiscais</h3>
-<ul class="list-group">
-  {{ range .Nfs }}
-  <li class="list-group-item">{{.Number}}</li>
-  {{end}}
-</ul>
+<div class="d-flex gap-2 mb-3 justify-content-between">
+  <h3>Notas Fiscais</h3>
+  <button
+    hx-get="/nfs/cadastro"
+    hx-trigger="load delay:500ms"
+    hx-target="#nf-content"
+    hx-swap="beforeend"
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="modal"
+    data-bs-target="{{.ModalId}}"
+  >
+    Novo Cadastro
+  </button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Data de Compra</th>
+      <th scope="col">Item</th>
+      <th scope="col">Número Nota Fiscal</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range .Nfs }}
+    <tr>
+      <th scope="row">{{.Id}}</th>
+      <td>{{.DateIn}}</td>
+      <td>{{.Name}}</td>
+      <td>{{.NfNumber}}</td>
+    </tr>
+    {{end}}
+  </tbody>
+</table>
