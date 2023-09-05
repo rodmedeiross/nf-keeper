@@ -1,0 +1,6 @@
+<h3>Notas Fiscais</h3>
+<ul class="list-group">
+  {{ range .Nfs }}
+  <li class="list-group-item">{{.Number}}</li>
+  {{end}}
+</ul>
